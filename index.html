@@ -1,0 +1,934 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Maison Vell</title>
+<meta name="description" content="A runway lookbook where six looks stand in a line into the distance and every drag brings the next one to the front.">
+<meta property="og:title" content="Maison Vell" />
+<meta property="og:description" content="A runway lookbook where six looks stand in a line into the distance and every drag brings the next one to the front." />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Michroma&display=swap" rel="stylesheet">
+<style>
+:root{--u:min(calc(100vw/1600),calc(100vh/900));--ink:#16191f;--mid:#737b86;--dim:#a4adb8;--line:#e6ebf0;--ice:#e9f0f7;--glass:rgba(255,255,255,0.78);--glass-border:rgba(255,255,255,0.7)}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:#f6f9fc}
+body{font-family:Inter,system-ui,sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased;overflow:hidden}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+ul{list-style:none}
+.wide{font-family:Michroma,sans-serif;text-transform:uppercase}
+.page{height:100svh;min-height:520px;display:grid;grid-template-rows:auto 1fr;background:#fff;position:relative;overflow:hidden}
+header{position:relative;z-index:20;background:rgba(255,255,255,0.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.7);box-shadow:0 8px 30px -10px rgba(22,25,31,0.04);padding:calc(20*var(--u)) calc(46*var(--u)) calc(15*var(--u))}
+.r1{display:grid;grid-template-columns:1fr auto 1fr;align-items:center}
+.brand{font-size:calc(15.5*var(--u));letter-spacing:.2em;cursor:pointer}
+.tabs{display:flex;gap:calc(48*var(--u));font-size:calc(14.5*var(--u));letter-spacing:.14em;color:var(--dim)}
+.tabs a,.tabs button{transition:color .25s;color:var(--dim)}
+.tabs .on,.tabs a:hover,.tabs button:hover{color:var(--ink)}
+.acct{justify-self:end;display:flex;align-items:center;gap:calc(22*var(--u));font-size:calc(9.5*var(--u));letter-spacing:.12em}
+.acct a,.acct button{display:flex;align-items:center;gap:calc(6*var(--u));color:inherit;transition:color .2s}
+.acct a:hover,.acct button:hover{color:var(--mid)}
+.acct svg{width:calc(17*var(--u));height:calc(17*var(--u));fill:none;stroke:currentColor;stroke-width:1.5}
+.badge-count{display:inline-flex;align-items:center;justify-content:center;min-width:calc(16*var(--u));height:calc(16*var(--u));padding:0 calc(4*var(--u));border-radius:99px;background:var(--ink);color:#fff;font-size:calc(8*var(--u));line-height:1}
+.r2{display:flex;justify-content:center;gap:calc(60*var(--u));margin-top:calc(17*var(--u));font-size:calc(9.5*var(--u));letter-spacing:.14em}
+.r2 a,.r2 button{transition:color .2s;color:var(--ink)}
+.r2 .on{color:#000;font-weight:600;text-decoration:underline;text-underline-offset:4px}
+.r2 a:hover,.r2 button:hover{color:var(--mid)}
+
+#viewport-area{position:relative;width:100%;height:100%;min-height:0;overflow:hidden}
+.view-panel{position:absolute;inset:0;width:100%;height:100%;display:none}
+.view-panel.active{display:grid}
+
+/* RUNWAY STAGE */
+#runway-view{grid-template-columns:1fr calc(372*var(--u));min-height:0}
+.stage{position:relative;overflow:hidden;min-width:0;touch-action:pan-y;user-select:none;-webkit-user-select:none;cursor:none;
+  background:linear-gradient(transparent 60%,rgba(255,255,255,.72) 100%),linear-gradient(90deg,#f1f5fa 0%,#e7eff6 38%,#eef4f9 62%,#f6f9fc 100%)}
+.line{position:absolute;inset:0}
+.m{position:absolute;left:0;top:0;transform-origin:0 0;will-change:transform,filter;cursor:none}
+.m svg{display:block;position:relative;width:100%;height:100%}
+.m:before{content:"";position:absolute;left:8%;right:8%;bottom:-1.6%;height:3.6%;border-radius:50%;background:radial-gradient(closest-side,rgba(70,85,105,.24),transparent)}
+.intro{position:absolute;z-index:2;left:calc(46*var(--u));top:calc(36*var(--u));width:calc(390*var(--u));pointer-events:none;background:rgba(255,255,255,0.5);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,0.75);border-radius:calc(16*var(--u));padding:calc(20*var(--u)) calc(24*var(--u));box-shadow:0 12px 32px rgba(22,25,31,0.03)}
+.intro h2{font-weight:400;font-size:calc(22*var(--u));line-height:1.2;letter-spacing:.16em;white-space:nowrap}
+.intro p{margin-top:calc(16*var(--u));font-size:calc(14*var(--u));line-height:1.62;letter-spacing:.012em;color:var(--mid)}
+.tag{position:absolute;z-index:2;left:calc(46*var(--u));bottom:calc(44*var(--u));background:rgba(255,255,255,0.55);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,0.85);border-radius:calc(16*var(--u));padding:calc(14*var(--u)) calc(22*var(--u)) calc(16*var(--u));box-shadow:0 12px 32px rgba(22,25,31,0.04)}
+.look{display:flex;font-size:calc(29*var(--u));line-height:calc(38*var(--u));letter-spacing:.14em;gap:.5em;pointer-events:none}
+.win{height:calc(38*var(--u));overflow:hidden}
+.roll{display:block;will-change:transform}
+.roll b{display:block;font-weight:400;height:calc(38*var(--u))}
+.shop{display:inline-block;margin-top:calc(13*var(--u));font-size:calc(9.5*var(--u));letter-spacing:.14em;padding-bottom:calc(4*var(--u));border-bottom:1px solid currentColor;cursor:pointer}
+.ring{position:absolute;z-index:4;left:0;top:0;width:calc(46*var(--u));height:calc(46*var(--u));margin:calc(-23*var(--u)) 0 0 calc(-23*var(--u));border:calc(2.5*var(--u)) solid #16191f;border-radius:99px;pointer-events:none;opacity:0;transition:width .22s cubic-bezier(.2,.8,.2,1),height .22s cubic-bezier(.2,.8,.2,1),margin .22s cubic-bezier(.2,.8,.2,1),opacity .2s;background:rgba(22,25,31,0.03);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px)}
+.ring.show{opacity:1}
+.ring.drag{width:calc(84*var(--u));height:calc(34*var(--u));margin:calc(-17*var(--u)) 0 0 calc(-42*var(--u));background:rgba(22,25,31,0.07);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.rail{position:relative;overflow:hidden;background:rgba(243,246,250,0.82);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-left:1px solid rgba(255,255,255,0.75);box-shadow:-12px 0 36px rgba(22,25,31,0.03);min-height:0}
+.card{position:absolute;left:0;top:0;width:100%;display:flex;flex-direction:column;padding:calc(18*var(--u)) calc(24*var(--u)) calc(18*var(--u));will-change:transform;background:rgba(243,246,250,0.55);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,0.65)}
+.card.alt{background:rgba(255,255,255,0.72)}
+.fav{position:absolute;left:calc(22*var(--u));top:calc(18*var(--u));width:calc(28*var(--u));height:calc(28*var(--u));display:flex;align-items:center;justify-content:center;border-radius:50%;background:rgba(255,255,255,0.75);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.9);box-shadow:0 2px 8px rgba(0,0,0,0.04);z-index:1;color:var(--ink);transition:all .2s}
+.fav svg{width:calc(16*var(--u));height:calc(16*var(--u));fill:none;stroke:currentColor;stroke-width:1.4;transition:fill .2s}
+.fav[aria-pressed=true] svg{fill:#d8a7a0;stroke:#b98179}
+.shot{flex:1;min-height:0;display:block}
+.shot svg{display:block;width:100%;height:100%}
+.meta{display:grid;grid-template-columns:1fr auto;align-items:end;margin-top:calc(8*var(--u))}
+.meta h3{font-weight:400;font-size:calc(9.5*var(--u));letter-spacing:.14em}
+.meta span{display:block;grid-column:1;margin-top:calc(6*var(--u));font-size:calc(12.5*var(--u));color:var(--mid);letter-spacing:.03em}
+.add{grid-column:2;grid-row:1/3;width:calc(28*var(--u));height:calc(28*var(--u));position:relative;border-radius:50%;background:rgba(255,255,255,0.8);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.9);box-shadow:0 2px 8px rgba(0,0,0,0.04);transition:transform .2s,background .2s}
+.add:before,.add:after{content:"";position:absolute;left:50%;top:50%;width:calc(14*var(--u));height:1.5px;margin:-.75px 0 0 calc(-7*var(--u));background:var(--ink)}
+.add:after{transform:rotate(90deg)}
+.add:hover{transform:rotate(90deg)}
+
+/* SECTIONS OVERLAY & EDITORIAL VIEW */
+#section-view{display:none;grid-template-rows:auto 1fr;height:100%;overflow:hidden;background:linear-gradient(135deg,#f4f7fb 0%,#edf2f7 50%,#f8fafc 100%)}
+#section-view.active{display:grid}
+.sec-bar{display:flex;align-items:center;justify-content:space-between;padding:calc(16*var(--u)) calc(46*var(--u));background:rgba(255,255,255,0.65);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,0.7)}
+.sec-back{display:inline-flex;align-items:center;gap:calc(8*var(--u));font-size:calc(10.5*var(--u));letter-spacing:.14em;padding:calc(8*var(--u)) calc(16*var(--u));border-radius:99px;background:rgba(255,255,255,0.85);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.9);box-shadow:0 2px 10px rgba(0,0,0,0.04);transition:all .2s}
+.sec-back:hover{background:#fff;transform:translateX(-2px)}
+.sec-title-wrap{text-align:center}
+.sec-title-wrap h1{font-weight:400;font-size:calc(16*var(--u));letter-spacing:.22em;color:var(--ink)}
+.sec-title-wrap p{font-size:calc(11*var(--u));color:var(--mid);letter-spacing:.05em;margin-top:2px}
+.sec-filters{display:flex;gap:calc(10*var(--u))}
+.sec-pill{padding:calc(6*var(--u)) calc(14*var(--u));border-radius:99px;font-size:calc(9*var(--u));letter-spacing:.12em;background:rgba(255,255,255,0.6);border:1px solid rgba(255,255,255,0.8);color:var(--mid);transition:all .2s;cursor:pointer}
+.sec-pill.active,.sec-pill:hover{background:#fff;color:var(--ink);box-shadow:0 2px 8px rgba(0,0,0,0.04)}
+
+.sec-scroll{overflow-y:auto;overflow-x:hidden;height:100%;padding:calc(30*var(--u)) calc(46*var(--u)) calc(60*var(--u))}
+.sec-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(calc(280*var(--u)),1fr));gap:calc(26*var(--u))}
+
+/* EDITORIAL PHOTO CARDS */
+.pcard{position:relative;background:rgba(255,255,255,0.65);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,0.85);border-radius:calc(14*var(--u));overflow:hidden;display:flex;flex-direction:column;box-shadow:0 8px 30px rgba(22,25,31,0.03);transition:transform .4s cubic-bezier(.16,1,.3,1),box-shadow .4s}
+.pcard:hover{transform:translateY(calc(-4*var(--u)));box-shadow:0 16px 40px rgba(22,25,31,0.08);background:rgba(255,255,255,0.85)}
+.pcard-img-wrap{position:relative;width:100%;aspect-ratio:3/4;overflow:hidden;background:#e7edf3}
+.pcard-img{width:100%;height:100%;object-fit:cover;object-position:center top;transition:transform .7s cubic-bezier(.16,1,.3,1)}
+.pcard:hover .pcard-img{transform:scale(1.05)}
+.pcard-badge{position:absolute;top:calc(12*var(--u));left:calc(12*var(--u));padding:calc(4*var(--u)) calc(10*var(--u));border-radius:99px;background:rgba(255,255,255,0.88);backdrop-filter:blur(8px);font-size:calc(8*var(--u));letter-spacing:.14em;color:var(--ink);border:1px solid rgba(255,255,255,0.9)}
+.pcard-fav{position:absolute;top:calc(12*var(--u));right:calc(12*var(--u));width:calc(30*var(--u));height:calc(30*var(--u));border-radius:50%;background:rgba(255,255,255,0.85);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,0.9);box-shadow:0 2px 8px rgba(0,0,0,0.06);transition:all .2s}
+.pcard-fav svg{width:calc(16*var(--u));height:calc(16*var(--u));fill:none;stroke:currentColor;stroke-width:1.4}
+.pcard-fav[aria-pressed=true] svg{fill:#d8a7a0;stroke:#b98179}
+.pcard-body{padding:calc(18*var(--u)) calc(20*var(--u));display:flex;flex-direction:column;flex:1}
+.pcard-cat{font-size:calc(8.5*var(--u));letter-spacing:.16em;color:var(--mid);margin-bottom:calc(4*var(--u))}
+.pcard-title{font-weight:400;font-size:calc(11.5*var(--u));letter-spacing:.12em;line-height:1.3;margin-bottom:calc(8*var(--u))}
+.pcard-desc{font-size:calc(10*var(--u));line-height:1.55;color:var(--mid);margin-bottom:calc(14*var(--u));display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.pcard-foot{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:calc(12*var(--u));border-top:1px solid rgba(22,25,31,0.06)}
+.pcard-price{font-size:calc(13*var(--u));font-weight:500;color:var(--ink)}
+.pcard-buy{display:inline-flex;align-items:center;gap:calc(6*var(--u));padding:calc(7*var(--u)) calc(14*var(--u));border-radius:99px;background:var(--ink);color:#fff;font-size:calc(8.5*var(--u));letter-spacing:.14em;transition:all .2s;cursor:pointer}
+.pcard-buy:hover{background:#2a303c;transform:scale(1.02)}
+
+/* EDITORIAL STORY CARDS FOR "OUR WORLD" & "THE MAISON" */
+.story-card{position:relative;background:rgba(255,255,255,0.7);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,0.85);border-radius:calc(16*var(--u));overflow:hidden;display:grid;grid-template-columns:1fr 1fr;margin-bottom:calc(30*var(--u));box-shadow:0 12px 36px rgba(22,25,31,0.04)}
+.story-card.reverse{direction:rtl}
+.story-card.reverse .story-content{direction:ltr}
+.story-img-wrap{position:relative;width:100%;height:100%;min-height:calc(320*var(--u));overflow:hidden}
+.story-img{width:100%;height:100%;object-fit:cover}
+.story-content{padding:calc(40*var(--u));display:flex;flex-direction:column;justify-content:center}
+.story-tag{font-size:calc(9.5*var(--u));letter-spacing:.2em;color:var(--mid);margin-bottom:calc(12*var(--u))}
+.story-heading{font-size:calc(20*var(--u));letter-spacing:.16em;line-height:1.25;margin-bottom:calc(16*var(--u));font-weight:400}
+.story-p{font-size:calc(12.5*var(--u));line-height:1.75;color:var(--mid);margin-bottom:calc(20*var(--u))}
+
+/* DRAWERS AND MODALS */
+.drawer-backdrop{position:fixed;inset:0;z-index:90;background:rgba(22,25,31,0.3);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);opacity:0;pointer-events:none;transition:opacity .3s}
+.drawer-backdrop.open{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(440px,90vw);z-index:95;background:rgba(255,255,255,0.92);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-left:1px solid rgba(255,255,255,0.9);box-shadow:-20px 0 50px rgba(0,0,0,0.1);display:grid;grid-template-rows:auto 1fr auto;transform:translateX(100%);transition:transform .4s cubic-bezier(.16,1,.3,1)}
+.drawer.open{transform:translateX(0)}
+.drawer-head{display:flex;align-items:center;justify-content:space-between;padding:24px;border-bottom:1px solid rgba(22,25,31,0.08)}
+.drawer-head h2{font-size:14px;letter-spacing:.16em;font-weight:400}
+.drawer-close{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.04);transition:background .2s}
+.drawer-close:hover{background:rgba(0,0,0,0.08)}
+.drawer-body{overflow-y:auto;padding:20px 24px}
+.drawer-empty{text-align:center;padding:60px 20px;color:var(--mid);font-size:13px}
+.drawer-item{display:grid;grid-template-columns:70px 1fr auto;gap:16px;align-items:center;padding:12px 0;border-bottom:1px solid rgba(22,25,31,0.06)}
+.drawer-item img{width:70px;height:84px;object-fit:cover;border-radius:6px;background:#edf2f7}
+.drawer-item-title{font-size:11px;letter-spacing:.1em;margin-bottom:4px}
+.drawer-item-price{font-size:12px;color:var(--mid)}
+.drawer-remove{color:var(--mid);font-size:11px;transition:color .2s}
+.drawer-remove:hover{color:#e53e3e}
+.drawer-foot{padding:20px 24px;background:rgba(255,255,255,0.95);border-top:1px solid rgba(22,25,31,0.08)}
+.drawer-total{display:flex;justify-content:space-between;font-size:14px;margin-bottom:16px;letter-spacing:.1em}
+.drawer-checkout{width:100%;padding:14px;border-radius:99px;background:var(--ink);color:#fff;font-size:10px;letter-spacing:.16em;text-align:center;transition:background .2s}
+.drawer-checkout:hover{background:#2a303c}
+
+/* SEARCH MODAL */
+.search-modal{position:fixed;inset:0;z-index:92;background:rgba(22,25,31,0.4);backdrop-filter:blur(8px);display:flex;align-items:flex-start;justify-content:center;padding-top:12vh;opacity:0;pointer-events:none;transition:opacity .25s}
+.search-modal.open{opacity:1;pointer-events:auto}
+.search-card{width:min(640px,92vw);background:rgba(255,255,255,0.92);backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,0.9);border-radius:20px;padding:24px;box-shadow:0 24px 60px rgba(0,0,0,0.12)}
+.search-input-wrap{display:flex;align-items:center;gap:12px;border-bottom:1px solid rgba(22,25,31,0.12);padding-bottom:12px}
+.search-input-wrap svg{width:20px;height:20px;stroke:var(--mid)}
+.search-input{flex:1;border:0;outline:0;background:transparent;font-size:16px;font-family:inherit;color:var(--ink)}
+.search-results{max-height:360px;overflow-y:auto;margin-top:16px}
+
+/* TOAST */
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(30px);z-index:100;background:rgba(22,25,31,0.92);backdrop-filter:blur(12px);color:#fff;padding:10px 20px;border-radius:99px;font-size:11px;letter-spacing:.12em;display:flex;align-items:center;gap:10px;box-shadow:0 10px 30px rgba(0,0,0,0.15);opacity:0;pointer-events:none;transition:all .3s cubic-bezier(.16,1,.3,1)}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+.wait{position:fixed;inset:0;z-index:99;background:#f1f5fa;transition:opacity .5s;pointer-events:none}
+.wait.gone{opacity:0}
+button:focus-visible,a:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+
+@media (max-width:820px){
+  :root{--u:1px}
+  header{padding:14px 16px 12px}
+  .r1{grid-template-columns:1fr auto}
+  .tabs,.r2,.acct>button:not(:last-child){display:none}
+  .brand{font-size:14px}
+  #runway-view{grid-template-columns:1fr;grid-template-rows:1fr 190px}
+  .stage{cursor:auto}.m{cursor:auto}.ring{display:none}
+  .intro{left:16px;top:18px;width:calc(100% - 32px);padding:12px 14px}
+  .intro h2{font-size:17px}
+  .intro p{display:none}
+  .tag{left:16px;bottom:18px;padding:10px 14px 12px}
+  .look{font-size:22px;line-height:30px}.win,.roll b{height:30px}
+  .card{width:160px;height:100%;padding:12px}
+  .fav{left:10px;top:10px}
+  .sec-bar{padding:12px 16px;flex-direction:column;gap:12px;align-items:flex-start}
+  .sec-scroll{padding:16px}
+  .story-card{grid-template-columns:1fr}
+  .story-content{padding:20px}
+}
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <div class="r1">
+      <button class="brand wide" id="logo-btn" aria-label="Maison Vell">Maison Vell</button>
+      <nav class="tabs wide" aria-label="Sections">
+        <button class="on nav-btn" data-target="runway" aria-current="page">Runway</button>
+        <button class="nav-btn" data-target="the-maison">The Maison</button>
+        <button class="nav-btn" data-target="lookbook">Lookbook</button>
+        <button class="nav-btn" data-target="shop">Shop</button>
+      </nav>
+      <div class="acct wide">
+        <button id="login-btn">Login</button>
+        <button id="search-btn" aria-label="Search"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></svg></button>
+        <button id="saved-btn" aria-label="Saved"><svg viewBox="0 0 24 24"><path d="M12 20S3.5 15 3.5 9A4.6 4.6 0 0 1 12 6.6 4.6 4.6 0 0 1 20.500 9C20.500 15 12 20 12 20Z"/></svg><span class="badge-count" id="saved-badge">0</span></button>
+        <button id="cart-btn" aria-label="Cart">
+          <svg viewBox="0 0 24 24"><path d="M5 8h14l1 13H4Z"/><path d="M9 10V6a3 3 0 0 1 6 0v4"/></svg>
+          <span>Cart (<span id="cart">0</span>)</span>
+        </button>
+      </div>
+    </div>
+    <nav class="r2 wide" aria-label="Departments">
+      <button class="nav-btn" data-target="collections">Collections</button>
+      <button class="nav-btn" data-target="clothing">Clothing</button>
+      <button class="nav-btn" data-target="lookbook">Lookbook</button>
+      <button class="nav-btn" data-target="beauty">Beauty</button>
+      <button class="nav-btn" data-target="accessories">Accessories</button>
+      <button class="nav-btn" data-target="our-world">Our World</button>
+    </nav>
+  </header>
+
+  <div id="viewport-area">
+    <!-- VIEW 1: RUNWAY DEPTH LOOKBOOK -->
+    <main id="runway-view" class="view-panel active">
+      <section class="stage" id="stage" aria-label="Runway looks. Drag, scroll or use the arrow keys to change look." tabindex="0">
+        <div class="line" id="line"></div>
+        <div class="intro">
+          <h2 class="wide">Spring Summer 2027</h2>
+          <p>A study in softness and strength. The new season collection from Maison Vell blends delicate textures and modern silhouettes, crafted for a more beautiful tomorrow.</p>
+        </div>
+        <div class="tag">
+          <div class="look wide" aria-live="polite"><span>Look</span><span class="win"><span class="roll" id="roll"></span></span></div>
+          <button class="shop wide" id="shop-look-btn">Shop the look</button>
+        </div>
+        <div class="ring" id="ring"></div>
+      </section>
+      <aside class="rail" id="rail" aria-label="Pieces in this look"></aside>
+    </main>
+
+    <!-- VIEW 2: DYNAMIC SECTION VIEW -->
+    <section id="section-view" class="view-panel" aria-label="Collection catalog and editorial view">
+      <div class="sec-bar">
+        <button class="sec-back wide" id="sec-back-btn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
+          <span>Return to Runway</span>
+        </button>
+        <div class="sec-title-wrap">
+          <h1 class="wide" id="sec-heading">Collections</h1>
+          <p id="sec-subtitle">Spring Summer 2027 Haute Couture & Ready-To-Wear</p>
+        </div>
+        <div class="sec-filters" id="sec-filters">
+          <!-- Dynamic filter pills -->
+        </div>
+      </div>
+      <div class="sec-scroll">
+        <div id="sec-story-area"></div>
+        <div class="sec-grid" id="sec-grid">
+          <!-- Dynamic editorial cards -->
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<!-- CART DRAWER -->
+<div class="drawer-backdrop" id="drawer-backdrop"></div>
+<aside class="drawer" id="cart-drawer" aria-label="Shopping Bag">
+  <div class="drawer-head">
+    <h2 class="wide">Shopping Bag (<span id="cart-drawer-count">0</span>)</h2>
+    <button class="drawer-close" id="cart-close-btn" aria-label="Close bag">✕</button>
+  </div>
+  <div class="drawer-body" id="cart-items-container">
+    <div class="drawer-empty">Your shopping bag is currently empty.</div>
+  </div>
+  <div class="drawer-foot">
+    <div class="drawer-total wide">
+      <span>Subtotal</span>
+      <span id="cart-subtotal">$0</span>
+    </div>
+    <button class="drawer-checkout wide" id="checkout-btn">Proceed to Checkout</button>
+  </div>
+</aside>
+
+<!-- SAVED WISHLIST DRAWER -->
+<aside class="drawer" id="saved-drawer" aria-label="Saved Wishlist">
+  <div class="drawer-head">
+    <h2 class="wide">Saved Pieces (<span id="saved-drawer-count">0</span>)</h2>
+    <button class="drawer-close" id="saved-close-btn" aria-label="Close saved items">✕</button>
+  </div>
+  <div class="drawer-body" id="saved-items-container">
+    <div class="drawer-empty">No saved pieces yet. Tap the heart on any look or garment.</div>
+  </div>
+  <div class="drawer-foot">
+    <button class="drawer-checkout wide" id="explore-btn">Explore Runway Looks</button>
+  </div>
+</aside>
+
+<!-- SEARCH MODAL -->
+<div class="search-modal" id="search-modal">
+  <div class="search-card">
+    <div class="search-input-wrap">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input type="text" class="search-input" id="search-input" placeholder="Search collection, clothing, lookbook, accessories, beauty..." autofocus>
+      <button class="drawer-close" id="search-close-btn">✕</button>
+    </div>
+    <div class="search-results" id="search-results">
+      <div style="font-size:12px;color:var(--mid);padding:12px 0;">Try searching for: Trench Dress, Feather Jacket, Gown, Leather Bag, Belt, SS27...</div>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast wide" id="toast">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
+  <span id="toast-text">Added to cart</span>
+</div>
+
+<div class="wait" id="wait"></div>
+
+<script type="module">
+// ==================== RUNWAY DEPTH LOOKBOOK ENGINE ====================
+const MODELS='https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20261102_042056_1a704ff7-b0e5-4a9f-bbda-62392b819fb6.png&w=3840&q=85';
+const PIECES='https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20261102_042057_080e85b0-b4aa-4072-8eb9-2304c7baf42b.png&w=2400&q=85';
+
+const LOOKS=[[12,176],[178,330],[331,470],[476,633],[634,767],[767,956]],Y0=48,Y1=496,FIRST=15;
+
+const ITEMS=[
+  [26,224,28,214,'Feather Jacket','$2,900',15,'https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=800&q=80'],
+  [304,412,22,236,'Satin Wide Leg Trousers','$1,450',15,'https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=800&q=80'],
+  [530,666,12,242,'Pleated Dress','$2,200',16,'https://images.unsplash.com/photo-1566174053879-31528523f8ae?auto=format&fit=crop&w=800&q=80'],
+  [752,922,100,146,'Gold Waist Belt','$420',16,'https://images.unsplash.com/photo-1611591475168-19e075034c44?auto=format&fit=crop&w=800&q=80'],
+  [70,176,246,466,'Satin Trench Dress','$2,350',17,'https://images.unsplash.com/photo-1544441893-675973e31985?auto=format&fit=crop&w=800&q=80'],
+  [294,422,294,432,'Top Handle Bag','$980',17,'https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=800&q=80'],
+  [508,688,240,452,'Billow Sleeve Blouse','$860',18,'https://images.unsplash.com/photo-1551803091-e20673f15770?auto=format&fit=crop&w=800&q=80'],
+  [780,890,252,466,'Tie Waist Trousers','$740',18,'https://images.unsplash.com/photo-1584273143981-41c073dfe8f8?auto=format&fit=crop&w=800&q=80'],
+  [64,178,484,698,'Powder Long Coat','$1,980',19,'https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=800&q=80'],
+  [316,396,482,698,'Ivory Straight Trousers','$690',19,'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=800&q=80'],
+  [530,672,508,682,'Sculpted Ruffle Top','$1,120',20,'https://images.unsplash.com/photo-1502716119720-b23a93e5fe1b?auto=format&fit=crop&w=800&q=80'],
+  [754,916,484,700,'Pleated Maxi Skirt','$1,340',20,'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=800&q=80']
+];
+
+const KX=[1.2,.744,.496,.346,.235,.15,.085],KF=[1.14,.89,.777,.704,.651,.616,.59],KH=[1.18,.832,.574,.436,.334,.258,.19],
+      KB=[0,0,1.5,4,8,12,17],KO=[1,1,1,1,.86,.5,0];
+
+const N=LOOKS.length,$=id=>document.getElementById(id),calm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+const stage=$('stage'),rail=$('rail'),ring=$('ring'),roll=$('roll'),line=$('line');
+const NS='http://www.w3.org/2000/svg',wrap=(x,n)=>((x%n)+n)%n;
+
+function crop(href,x0,y0,w,h,sheetW,sheetH){
+  const s=document.createElementNS(NS,'svg');s.setAttribute('viewBox',`${x0} ${y0} ${w} ${h}`);s.setAttribute('aria-hidden','true');
+  const f=document.createElementNS(NS,'svg');[['x',x0],['y',y0],['width',w],['height',h],['viewBox',`${x0} ${y0} ${w} ${h}`]].forEach(([k,v])=>f.setAttribute(k,v));
+  const i=document.createElementNS(NS,'image');i.setAttribute('href',href);i.setAttribute('width',sheetW);i.setAttribute('height',sheetH);f.append(i);s.append(f);return s;
+}
+
+const people=LOOKS.map(([a,b],i)=>{
+  const e=document.createElement('div');e.className='m';e.dataset.i=i;e.append(crop(MODELS,a,Y0,b-a,Y1-Y0,960,540));line.append(e);
+  return{e,r:(b-a)/(Y1-Y0),f:'',o:''};
+});
+
+const cards=ITEMS.map(([a,b,c,d,name,price,lookNum,photoUrl],i)=>{
+  const e=document.createElement('article');e.className='card'+(i%2?' alt':'');
+  e.innerHTML=`<button class="fav" aria-pressed="false" aria-label="Save ${name}" data-name="${name}"><svg viewBox="0 0 24 24"><path d="M12 20S3.5 15 3.5 9A4.6 4.6 0 0 1 12 6.6 4.600 4.600 0 0 1 20.500 9C20.500 15 12 20 12 20Z"/></svg></button><span class="shot"></span><div class="meta"><h3 class="wide">${name}</h3><span>${price}</span><button class="add" aria-label="Add ${name} to cart" data-name="${name}" data-price="${price}" data-img="${photoUrl}"></button></div>`;
+  e.querySelector('.shot').append(crop(PIECES,a,c,b-a,d-c,960,720));rail.append(e);return e;
+});
+
+for(let i=0;i<=N;i++){const b=document.createElement('b');b.textContent=FIRST+i%N;roll.append(b)}
+
+// App state
+let cartItems = [];
+let savedItems = new Set();
+
+function showToast(msg){
+  const t=$('toast');$('toast-text').textContent=msg;
+  t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),2400);
+}
+
+function updateCartUI(){
+  const count = cartItems.reduce((acc,it)=>acc+it.qty, 0);
+  $('cart').textContent = count;
+  $('cart-drawer-count').textContent = count;
+  const container = $('cart-items-container');
+  if(cartItems.length===0){
+    container.innerHTML = '<div class="drawer-empty">Your shopping bag is currently empty.</div>';
+    $('cart-subtotal').textContent = '$0';
+    return;
+  }
+  let sum = 0;
+  container.innerHTML = cartItems.map((item,idx)=>{
+    const pNum = parseInt(item.price.replace(/[^0-9]/g,''),10);
+    sum += pNum * item.qty;
+    return `
+      <div class="drawer-item">
+        <img src="${item.img}" alt="${item.name}">
+        <div>
+          <div class="drawer-item-title wide">${item.name}</div>
+          <div class="drawer-item-price">${item.price} × ${item.qty}</div>
+        </div>
+        <button class="drawer-remove" data-idx="${idx}">Remove</button>
+      </div>
+    `;
+  }).join('');
+  $('cart-subtotal').textContent = '$' + sum.toLocaleString();
+}
+
+function updateSavedUI(){
+  const count = savedItems.size;
+  $('saved-badge').textContent = count;
+  $('saved-drawer-count').textContent = count;
+  const container = $('saved-items-container');
+  if(count===0){
+    container.innerHTML = '<div class="drawer-empty">No saved pieces yet. Tap the heart on any look or garment.</div>';
+    return;
+  }
+  const savedArr = Array.from(savedItems);
+  container.innerHTML = savedArr.map(name => {
+    const it = ALL_CATALOG.find(p => p.name === name) || { name, price: '$1,800', img: 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=400&q=80' };
+    return `
+      <div class="drawer-item">
+        <img src="${it.img}" alt="${it.name}">
+        <div>
+          <div class="drawer-item-title wide">${it.name}</div>
+          <div class="drawer-item-price">${it.price}</div>
+        </div>
+        <button class="pcard-buy wide add-from-saved" data-name="${it.name}" data-price="${it.price}" data-img="${it.img}">Add to Bag</button>
+      </div>
+    `;
+  }).join('');
+}
+
+function toggleSaved(name, btnEl){
+  if(savedItems.has(name)){
+    savedItems.delete(name);
+    if(btnEl) btnEl.setAttribute('aria-pressed','false');
+    showToast(`Removed from saved pieces`);
+  }else{
+    savedItems.add(name);
+    if(btnEl) btnEl.setAttribute('aria-pressed','true');
+    showToast(`Saved to wishlist`);
+  }
+  updateSavedUI();
+  document.querySelectorAll(`.fav[data-name="${name}"], .pcard-fav[data-name="${name}"]`).forEach(b=>{
+    b.setAttribute('aria-pressed', savedItems.has(name)?'true':'false');
+  });
+}
+
+function addToCart(name, price, img){
+  const existing = cartItems.find(it=>it.name===name);
+  if(existing){
+    existing.qty++;
+  }else{
+    cartItems.push({name, price, img, qty:1});
+  }
+  updateCartUI();
+  showToast(`Added ${name} to bag`);
+}
+
+rail.addEventListener('click',e=>{
+  const f=e.target.closest('.fav');
+  if(f){
+    const name = f.dataset.name || f.closest('article').querySelector('h3').textContent;
+    toggleSaved(name, f);
+  }
+  const a=e.target.closest('.add');
+  if(a){
+    const name = a.dataset.name;
+    const price = a.dataset.price;
+    const img = a.dataset.img;
+    addToCart(name, price, img);
+  }
+});
+
+let W=0,H=0,base=0,cardS=0,side=false,dirty=true,p=0,target=0,last=0;
+function size(){
+  W=stage.clientWidth;H=stage.clientHeight;base=H*1.2;side=innerWidth<=820;
+  people.forEach(m=>{m.e.style.width=base*m.r+'px';m.e.style.height=base+'px'});
+  cardS=side?160:rail.clientHeight/3;
+  cards.forEach(c=>c.style.height=side?'100%':cardS+'px');
+  roll.style.setProperty('--h',roll.firstChild.getBoundingClientRect().height);
+  dirty=true;
+}
+addEventListener('resize',size);
+
+function paint(){
+  people.forEach((m,i)=>{
+    let d=wrap(i-p,N);if(d>N-1)d-=N;
+    const k=clamp(d+1,0,6),a=Math.floor(k),b=Math.min(6,a+1),t=k-a,mix=A=>A[a]+(A[b]-A[a])*t;
+    const h=mix(KH)*H,s=h/base,w=h*m.r,x=mix(KX)*W-w/2,y=mix(KF)*H-h;
+    m.e.style.transform=`translate3d(${x.toFixed(1)}px,${y.toFixed(1)}px,0) scale(${s.toFixed(4)})`;
+    const f=mix(KB)/s,fs=f<.2?'none':`blur(${f.toFixed(1)}px)`,o=mix(KO).toFixed(3);
+    if(fs!==m.f){m.f=fs;m.e.style.filter=fs}
+    if(o!==m.o){m.o=o;m.e.style.opacity=o}
+    m.e.style.zIndex=100-Math.round(d*10);
+  });
+  const all=cardS*ITEMS.length;
+  cards.forEach((c,i)=>{
+    let y=wrap(i*cardS-p*2*cardS,all);if(y>all-cardS)y-=all;
+    c.style.transform=side?`translate3d(${y.toFixed(1)}px,0,0)`:`translate3d(0,${y.toFixed(1)}px,0)`;
+  });
+  roll.style.transform=`translate3d(0,${(-wrap(p,N)*roll.firstChild.offsetHeight).toFixed(1)}px,0)`;
+}
+const clamp=(x,a,b)=>Math.min(b,Math.max(a,x));
+
+let mx=0,my=0,cx=0,cy=0,down=false,sx=0,st=0,moved=0,wheelT=0;
+
+function frame(now){
+  const dt=Math.min(50,now-last)||16;last=now;
+  const was=p;
+  if(calm)p=target;else p+=(target-p)*(1-Math.exp(-dt*.0072));
+  if(Math.abs(target-p)<.0004)p=target;
+  if(p!==was||dirty){dirty=false;paint()}
+  cx+=(mx-cx)*.32;cy+=(my-cy)*.32;
+  ring.style.transform=`translate3d(${cx.toFixed(1)}px,${cy.toFixed(1)}px,0)`;
+}
+
+const PULL=()=>Math.max(150,W*.2);
+stage.addEventListener('pointerenter',e=>{if(e.pointerType==='mouse')ring.classList.add('show')});
+stage.addEventListener('pointerleave',()=>ring.classList.remove('show'));
+stage.addEventListener('pointermove',e=>{
+  const r=stage.getBoundingClientRect();mx=e.clientX-r.left;my=e.clientY-r.top;
+  if(!down)return;
+  const dx=e.clientX-sx;moved=Math.max(moved,Math.abs(dx));target=st+dx/PULL();
+});
+stage.addEventListener('pointerdown',e=>{
+  if(e.target.closest('a')||e.target.closest('button'))return;
+  down=true;sx=e.clientX;st=target;moved=0;stage.setPointerCapture(e.pointerId);ring.classList.add('drag');
+});
+function release(e){
+  if(!down)return;down=false;ring.classList.remove('drag');
+  if(moved<6){
+    const hit=document.elementsFromPoint(e.clientX,e.clientY).find(x=>x.classList&&x.classList.contains('m'));
+    if(hit){let d=wrap(+hit.dataset.i-target,N);d=Math.round(d);if(d>0&&d<N)target=Math.round(target)+d}
+  }else target=Math.round(target);
+}
+stage.addEventListener('pointerup',release);stage.addEventListener('pointercancel',release);
+stage.addEventListener('wheel',e=>{
+  e.preventDefault();target+=clamp(e.deltaY+e.deltaX,-120,120)/420;
+  clearTimeout(wheelT);wheelT=setTimeout(()=>{target=Math.round(target)},150);
+},{passive:false});
+addEventListener('keydown',e=>{
+  if(['ArrowRight','ArrowDown'].includes(e.key)){e.preventDefault();target=Math.round(target)+1}
+  if(['ArrowLeft','ArrowUp'].includes(e.key)){e.preventDefault();target=Math.round(target)-1}
+});
+
+function loop(t){frame(t);requestAnimationFrame(loop)}
+Promise.all([MODELS,PIECES].map(u=>{const i=new Image;i.src=u;return i.decode().catch(()=>{})})).then(()=>document.fonts.ready).then(()=>{
+  size();paint();$('wait').classList.add('gone');
+});
+size();requestAnimationFrame(loop);
+
+// ==================== EDITORIAL CATALOG & SECTIONS DATA ====================
+
+const ALL_CATALOG = [
+  // Collections & Runway Looks
+  { id:'c1', name:'Feather Couture Jacket', price:'$2,900', category:'collections', subcat:'Haute Couture', tag:'Runway Look 15', desc:'Hand-applied ethereal marabou blush feathers over double-faced silk crepe.', box:[26,28,198,186], type:'piece' },
+  { id:'c2', name:'Satin Wide Leg Trouser', price:'$1,450', category:'collections', subcat:'Tailoring', tag:'Runway Look 15', desc:'High-rise fluid silhouette tailored from heavy champagne duchess silk satin.', box:[304,22,108,214], type:'piece' },
+  { id:'c3', name:'Pleated Grecian Dress', price:'$2,200', category:'collections', subcat:'Evening Wear', tag:'Runway Look 16', desc:'Sage green micro-plissé chiffon with hand-gathered plunge bodice and split hem.', box:[530,12,136,230], type:'piece' },
+  { id:'c4', name:'Polished Gold Waist Belt', price:'$420', category:'accessories', subcat:'Belts', tag:'Runway Look 16', desc:'Architectural spring metal band with brushed 24k gold galvanic plating.', box:[752,100,170,46], type:'piece' },
+  { id:'c5', name:'Satin Trench Dress', price:'$2,350', category:'collections', subcat:'Outerwear', tag:'Runway Look 17', desc:'Architectural wrap front with oversized storm lapels in lustrous sand crepe.', box:[70,246,106,220], type:'piece' },
+  { id:'c6', name:'Maison Vell Top Handle Bag', price:'$980', category:'accessories', subcat:'Leather Goods', tag:'Runway Look 17', desc:'Sculptural curved box calfskin bag with palladium clasp and detachable strap.', box:[294,294,128,138], type:'piece' },
+  { id:'c7', name:'Billow Silk Organza Blouse', price:'$860', category:'clothing', subcat:'Tops', tag:'Runway Look 18', desc:'Dramatic blouson sleeves with delicate French covered buttons along the cuff.', box:[508,240,180,212], type:'piece' },
+  { id:'c8', name:'Tie-Waist Fluid Trouser', price:'$740', category:'clothing', subcat:'Trousers', tag:'Runway Look 18', desc:'Relaxed drape tailored with an elongated sash belt and deep side slant pockets.', box:[780,252,110,214], type:'piece' },
+  { id:'c9', name:'Powder Blue Cashmere Coat', price:'$1,980', category:'collections', subcat:'Outerwear', tag:'Runway Look 19', desc:'Cocoon silhouette unlined outerwear in double-faced Italian baby cashmere.', box:[64,484,114,214], type:'piece' },
+  { id:'c10', name:'Ivory Straight Trouser', price:'$690', category:'clothing', subcat:'Trousers', tag:'Runway Look 19', desc:'Sharp front crease with clean hook-and-bar closure in ivory stretch wool.', box:[316,482,80,216], type:'piece' },
+  { id:'c11', name:'Sculpted Ruffle Top', price:'$1,120', category:'clothing', subcat:'Tops', tag:'Runway Look 20', desc:'Asymmetric cascading spiral ruffles crafted from crisp faille silk.', box:[530,508,142,174], type:'piece' },
+  { id:'c12', name:'Plissé Maxi Column Skirt', price:'$1,340', category:'clothing', subcat:'Skirts', tag:'Runway Look 20', desc:'Sunray micro-pleats that move with liquid grace and clean invisible waistband.', box:[754,484,162,216], type:'piece' },
+
+  // Additional Luxury Accessories & Beauty
+  { id:'a3', name:'Satin Runway Stiletto 105', price:'$1,150', category:'accessories', subcat:'Footwear', tag:'SS27 Runway', desc:'Pointed toe d’Orsay pump draped in ivory duchess silk with lacquer stiletto.', img:'https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=800&q=80' },
+  { id:'a4', name:'Molten Brass & Pearl Ear Cuff', price:'$360', category:'accessories', subcat:'Jewelry', tag:'Craft', desc:'Organic cast brass with a luminous Australian baroque freshwater pearl.', img:'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=800&q=80' },
+  { id:'a5', name:'Structured Minimalist Tote', price:'$1,850', category:'accessories', subcat:'Leather Goods', tag:'Atelier', desc:'Hand-stitched full grain vegetable tanned saddle leather with raw suede lining.', img:'https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=800&q=80' },
+  { id:'a6', name:'Hand-Rolled Silk Chiffon Scarf', price:'$280', category:'accessories', subcat:'Scarves', tag:'Signature', desc:'Translucent dusty rose scarf featuring subtle jacquard Maison Vell crest.', img:'https://images.unsplash.com/photo-1601924994987-69e26d50dc26?auto=format&fit=crop&w=800&q=80' },
+
+  // Beauty
+  { id:'b1', name:'Satin Veil Luminous Elixir', price:'$180', category:'beauty', subcat:'Skincare', tag:'Atelier Formula', desc:'Infused with rare damask rose extract and peptide complexes for dewy runway skin.', img:'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=80' },
+  { id:'b2', name:'Velvet Rouge Lip Nectar', price:'$65', category:'beauty', subcat:'Color', tag:'Backstage', desc:'Weightless cushion pigment in shade No. 15 "Blush Dawn" with satin matte finish.', img:'https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&w=800&q=80' },
+  { id:'b3', name:'Extrait de Parfum — Nuit Vell', price:'$340', category:'beauty', subcat:'Fragrance', tag:'Haute Parfumerie', desc:'Top notes of white iris and pink pepper melting into warm ambergris and sandalwood.', img:'https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=800&q=80' }
+];
+
+const SECTIONS_CONFIG = {
+  'collections': {
+    title: 'Collections',
+    subtitle: 'Spring Summer 2027 Haute Couture & Ready-To-Wear',
+    filters: ['All', 'Haute Couture', 'Evening Wear', 'Outerwear', 'Tailoring'],
+    story: {
+      tag: 'SPRING SUMMER 2027 CAMPAIGN',
+      heading: 'A Study in Softness and Strength',
+      p: 'Rooted in the timeless tension between flowing silk drapery and architectural tailoring, the Spring Summer 2027 collection explores weightless silhouettes engineered for modern presence. Each garment is meticulously drafted in our Paris atelier with fabrics sourced from historic Como mills.',
+      img: 'https://images.unsplash.com/photo-1566174053879-31528523f8ae?auto=format&fit=crop&w=1200&q=80'
+    },
+    items: ALL_CATALOG.filter(it=>it.category==='collections')
+  },
+  'clothing': {
+    title: 'Clothing',
+    subtitle: 'Ready-to-Wear, Tailored Separates and Evening Silhouettes',
+    filters: ['All', 'Tops', 'Trousers', 'Dresses', 'Skirts'],
+    story: null,
+    items: ALL_CATALOG.filter(it=>it.category==='clothing' || it.category==='collections')
+  },
+  'lookbook': {
+    title: 'Lookbook',
+    subtitle: 'Runway Archive — Spring Summer 2027 Edition',
+    filters: ['All Looks', 'Look 15', 'Look 16', 'Look 17', 'Look 18', 'Look 19', 'Look 20'],
+    story: {
+      tag: 'EDITORIAL LOOKBOOK',
+      heading: 'From the Backstage to the Runway Horizon',
+      p: 'Captured live during the grand salon presentation at Place Vendôme. Look by look, examine the tactile combinations of plume feathers, pleated georgette, and radiant liquid satin.',
+      img: 'https://images.unsplash.com/photo-1469334031218-e382a71b716b?auto=format&fit=crop&w=1200&q=80'
+    },
+    items: ALL_CATALOG
+  },
+  'accessories': {
+    title: 'Accessories',
+    subtitle: 'Handcrafted Leather Goods, Fine Hardware & Runway Footwear',
+    filters: ['All', 'Leather Goods', 'Belts', 'Footwear', 'Jewelry', 'Scarves'],
+    story: {
+      tag: 'LEATHER & HARDWARE ATELIER',
+      heading: 'Sculpted Metal Meets Tuscan Calfskin',
+      p: 'Each accessory is envisioned as functional modern art. Hand-cast sculptural gold buckles and supple semi-aniline leathers designed to age with enduring grace.',
+      img: 'https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=1200&q=80'
+    },
+    items: ALL_CATALOG.filter(it=>it.category==='accessories')
+  },
+  'beauty': {
+    title: 'Beauty',
+    subtitle: 'Haute Parfumerie, Luminous Complexion and Runway Color',
+    filters: ['All', 'Skincare', 'Fragrance', 'Color'],
+    story: {
+      tag: 'LA BEAUTÉ MAISON VELL',
+      heading: 'The Alchemy of Luminous Radiance',
+      p: 'Formulated in Grasse and Paris, our beauty line mirrors the ethereal glow seen under the runway floodlights. Clean botanicals infused with opulent scent notes.',
+      img: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1200&q=80'
+    },
+    items: ALL_CATALOG.filter(it=>it.category==='beauty')
+  },
+  'our-world': {
+    title: 'Our World',
+    subtitle: 'Atelier Heritage, Sustainable Craftsmanship and Architectural Art',
+    filters: ['Atelier', 'Craftsmanship', 'Heritage', 'Sustainability'],
+    story: {
+      tag: 'DUA WORLD & THE HERITAGE',
+      heading: 'Crafted For A More Beautiful Tomorrow',
+      p: 'Founded on the principles of conscious luxury, Maison Vell operates transparent zero-waste cutting rooms in Paris and Lombardy. We honor centuries of master artisanal tradition while pioneering regenerative textiles.',
+      img: 'https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=1200&q=80'
+    },
+    items: ALL_CATALOG.slice(0,6)
+  },
+  'the-maison': {
+    title: 'The Maison',
+    subtitle: 'Architectural Philosophy & Creative Direction',
+    filters: ['Philosophy', 'Atelier', 'Archives'],
+    story: {
+      tag: 'THE HOUSE OF MAISON VELL',
+      heading: 'Architectural Pureness & Tactile Poetry',
+      p: 'Every Maison Vell creation begins with a sketch of spatial rhythm. We treat fabric as a sculptural medium that interacts with the body in motion.',
+      img: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=80'
+    },
+    items: ALL_CATALOG.slice(0,6)
+  },
+  'shop': {
+    title: 'Shop All',
+    subtitle: 'Curated Boutique Selection — Global Complimentary Shipping',
+    filters: ['All', 'Ready-To-Wear', 'Accessories', 'Beauty'],
+    story: null,
+    items: ALL_CATALOG
+  }
+};
+
+let currentSection = 'runway';
+let activeFilter = 'All';
+
+function renderSection(secId){
+  const conf = SECTIONS_CONFIG[secId] || SECTIONS_CONFIG['collections'];
+  $('sec-heading').textContent = conf.title;
+  $('sec-subtitle').textContent = conf.subtitle;
+
+  // Filters
+  const filtersWrap = $('sec-filters');
+  filtersWrap.innerHTML = conf.filters.map((f,idx)=>`
+    <button class="sec-pill ${idx===0?'active':''}" data-filter="${f}">${f}</button>
+  `).join('');
+
+  activeFilter = conf.filters[0] || 'All';
+
+  // Story banner
+  const storyArea = $('sec-story-area');
+  if(conf.story){
+    storyArea.innerHTML = `
+      <article class="story-card">
+        <div class="story-img-wrap">
+          <img class="story-img" src="${conf.story.img}" alt="${conf.story.heading}">
+        </div>
+        <div class="story-content">
+          <div class="story-tag wide">${conf.story.tag}</div>
+          <h2 class="story-heading wide">${conf.story.heading}</h2>
+          <p class="story-p">${conf.story.p}</p>
+          <div>
+            <button class="pcard-buy wide sec-back">Explore Lookbook</button>
+          </div>
+        </div>
+      </article>
+    `;
+  }else{
+    storyArea.innerHTML = '';
+  }
+
+  renderCards(conf.items);
+}
+
+function renderCards(items){
+  const grid = $('sec-grid');
+  let filtered = items;
+  if(activeFilter && activeFilter !== 'All' && activeFilter !== 'All Looks'){
+    filtered = items.filter(it => 
+      it.subcat === activeFilter || 
+      (it.tag && it.tag.includes(activeFilter)) ||
+      (it.category && it.category.toLowerCase() === activeFilter.toLowerCase())
+    );
+    if(filtered.length === 0) filtered = items;
+  }
+
+  grid.innerHTML = '';
+  filtered.forEach(it => {
+    const isFav = savedItems.has(it.name);
+    const cardEl = document.createElement('article');
+    cardEl.className = 'pcard';
+
+    const wrapEl = document.createElement('div');
+    wrapEl.className = 'pcard-img-wrap';
+    if(it.box){
+      wrapEl.style.display = 'flex';
+      wrapEl.style.alignItems = 'center';
+      wrapEl.style.justifyContent = 'center';
+      wrapEl.style.padding = '24px';
+      wrapEl.style.background = 'radial-gradient(circle at center, #ffffff 0%, #edf2f7 100%)';
+      const svgCrop = crop(PIECES, it.box[0], it.box[1], it.box[2], it.box[3], 960, 720);
+      svgCrop.style.maxHeight = '80%';
+      svgCrop.style.maxWidth = '80%';
+      svgCrop.style.filter = 'drop-shadow(0 10px 16px rgba(0,0,0,0.06))';
+      wrapEl.append(svgCrop);
+    }else if(it.img){
+      const imgEl = document.createElement('img');
+      imgEl.className = 'pcard-img';
+      imgEl.src = it.img;
+      imgEl.alt = it.name;
+      imgEl.loading = 'lazy';
+      wrapEl.append(imgEl);
+    }
+
+    const badge = document.createElement('span');
+    badge.className = 'pcard-badge wide';
+    badge.textContent = it.tag || 'Maison Vell';
+    wrapEl.append(badge);
+
+    const favBtn = document.createElement('button');
+    favBtn.className = 'pcard-fav';
+    favBtn.setAttribute('aria-pressed', isFav ? 'true' : 'false');
+    favBtn.setAttribute('aria-label', `Save ${it.name}`);
+    favBtn.dataset.name = it.name;
+    favBtn.innerHTML = '<svg viewBox="0 0 24 24"><path d="M12 20S3.5 15 3.5 9A4.6 4.6 0 0 1 12 6.6 4.6 4.6 0 0 1 20.500 9C20.500 15 12 20 12 20Z"/></svg>';
+    wrapEl.append(favBtn);
+
+    const bodyEl = document.createElement('div');
+    bodyEl.className = 'pcard-body';
+    bodyEl.innerHTML = `
+      <span class="pcard-cat wide">${it.subcat || it.category}</span>
+      <h3 class="pcard-title wide">${it.name}</h3>
+      <p class="pcard-desc">${it.desc || 'Handcrafted luxury piece designed for the Maison Vell Spring Summer 2027 collection.'}</p>
+      <div class="pcard-foot">
+        <span class="pcard-price">${it.price}</span>
+        <button class="pcard-buy wide" data-name="${it.name}" data-price="${it.price}" data-img="${it.img || ''}">+ Add to Bag</button>
+      </div>
+    `;
+
+    cardEl.append(wrapEl, bodyEl);
+    grid.append(cardEl);
+  });
+}
+
+function switchView(targetSection){
+  currentSection = targetSection;
+  document.querySelectorAll('.nav-btn').forEach(btn=>{
+    if(btn.dataset.target === targetSection){
+      btn.classList.add('on');
+      btn.setAttribute('aria-current','page');
+    }else{
+      btn.classList.remove('on');
+      btn.removeAttribute('aria-current');
+    }
+  });
+
+  if(targetSection === 'runway'){
+    $('runway-view').classList.add('active');
+    $('section-view').classList.remove('active');
+    size();
+    paint();
+  }else{
+    $('runway-view').classList.remove('active');
+    $('section-view').classList.add('active');
+    renderSection(targetSection);
+    $('section-view').querySelector('.sec-scroll').scrollTop = 0;
+  }
+}
+
+// Global clicks for section switching
+document.addEventListener('click', e=>{
+  const navBtn = e.target.closest('.nav-btn');
+  if(navBtn){
+    const target = navBtn.dataset.target;
+    switchView(target);
+    return;
+  }
+
+  if(e.target.closest('#logo-btn') || e.target.closest('#sec-back-btn') || e.target.closest('#explore-btn')){
+    switchView('runway');
+    closeDrawers();
+    return;
+  }
+
+  if(e.target.closest('#shop-look-btn')){
+    switchView('shop');
+    return;
+  }
+
+  // Filter pills
+  const pill = e.target.closest('.sec-pill');
+  if(pill){
+    document.querySelectorAll('.sec-pill').forEach(p=>p.classList.remove('active'));
+    pill.classList.add('active');
+    activeFilter = pill.dataset.filter;
+    const conf = SECTIONS_CONFIG[currentSection] || SECTIONS_CONFIG['collections'];
+    renderCards(conf.items);
+    return;
+  }
+
+  // Card Buy button
+  const buyBtn = e.target.closest('.pcard-buy');
+  if(buyBtn && buyBtn.dataset.name){
+    addToCart(buyBtn.dataset.name, buyBtn.dataset.price, buyBtn.dataset.img);
+    return;
+  }
+
+  // Card Fav button
+  const favBtn = e.target.closest('.pcard-fav');
+  if(favBtn && favBtn.dataset.name){
+    toggleSaved(favBtn.dataset.name, favBtn);
+    return;
+  }
+
+  // Remove from cart drawer
+  const remBtn = e.target.closest('.drawer-remove');
+  if(remBtn){
+    const idx = parseInt(remBtn.dataset.idx, 10);
+    cartItems.splice(idx, 1);
+    updateCartUI();
+    return;
+  }
+});
+
+// DRAWERS & MODALS LOGIC
+function openDrawer(id){
+  $('drawer-backdrop').classList.add('open');
+  $(id).classList.add('open');
+}
+function closeDrawers(){
+  $('drawer-backdrop').classList.remove('open');
+  $('cart-drawer').classList.remove('open');
+  $('saved-drawer').classList.remove('open');
+  $('search-modal').classList.remove('open');
+}
+
+$('cart-btn').addEventListener('click', ()=>openDrawer('cart-drawer'));
+$('saved-btn').addEventListener('click', ()=>openDrawer('saved-drawer'));
+$('cart-close-btn').addEventListener('click', closeDrawers);
+$('saved-close-btn').addEventListener('click', closeDrawers);
+$('drawer-backdrop').addEventListener('click', closeDrawers);
+
+$('checkout-btn').addEventListener('click', ()=>{
+  if(cartItems.length===0){
+    showToast('Your bag is empty');
+  }else{
+    showToast('Proceeding to luxury checkout...');
+    setTimeout(()=>{
+      cartItems = [];
+      updateCartUI();
+      closeDrawers();
+      showToast('Thank you! Your Maison Vell order has been placed.');
+    }, 1200);
+  }
+});
+
+// SEARCH MODAL
+$('search-btn').addEventListener('click', ()=>{
+  $('search-modal').classList.add('open');
+  setTimeout(()=>$('search-input').focus(), 100);
+});
+$('search-close-btn').addEventListener('click', closeDrawers);
+$('search-modal').addEventListener('click', e=>{
+  if(e.target===$('search-modal')) closeDrawers();
+});
+
+$('search-input').addEventListener('input', e=>{
+  const query = e.target.value.toLowerCase().trim();
+  const res = $('search-results');
+  if(!query){
+    res.innerHTML = '<div style="font-size:12px;color:var(--mid);padding:12px 0;">Try searching for: Trench Dress, Feather Jacket, Gown, Leather Bag, Belt, SS27...</div>';
+    return;
+  }
+  const matches = ALL_CATALOG.filter(it => 
+    it.name.toLowerCase().includes(query) || 
+    it.category.toLowerCase().includes(query) ||
+    (it.subcat && it.subcat.toLowerCase().includes(query)) ||
+    (it.desc && it.desc.toLowerCase().includes(query))
+  );
+
+  if(matches.length===0){
+    res.innerHTML = `<div style="font-size:13px;color:var(--mid);padding:20px 0;text-align:center;">No pieces matching "${query}"</div>`;
+  }else{
+    res.innerHTML = matches.map(it => `
+      <div class="drawer-item" style="grid-template-columns:50px 1fr auto;">
+        <img src="${it.img}" alt="${it.name}" style="width:50px;height:60px;">
+        <div>
+          <div class="drawer-item-title wide" style="font-size:11px;">${it.name}</div>
+          <div class="drawer-item-price">${it.price} · <span style="text-transform:capitalize;">${it.category}</span></div>
+        </div>
+        <button class="pcard-buy wide" data-name="${it.name}" data-price="${it.price}" data-img="${it.img}" style="padding:4px 10px;font-size:8px;">Add</button>
+      </div>
+    `).join('');
+  }
+});
+
+$('login-btn').addEventListener('click', ()=>{
+  showToast('Welcome to Maison Vell Client Portal');
+});
+</script>
+</body>
+</html>
